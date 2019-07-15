@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .country {
+            fill: white;
+            stroke: white;
+            stroke-width: .05;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const width = 960, height = 500;
+
+    const svg = d3.select("body").append("svg")
+            .attr("width", width).attr("height", height);
+
+    // choose a projection
+    const projection = d3.geoMercator();
+
+    // create a path generator function for the projection
+    const geoPath = d3.geoPath().projection(projection)
+
+    const colorScale = d3.scaleSqrt(["white", "red"]);
+
+    const map = {};
+
+    Promise.all([
+        d3.json('../geo/municipios_br.geojson'),
+        d3.csv('../csv/populacao_2016_municipios.csv', function(row) {
+            return {
+                cod_ibge: +row.cod_ibge.substring(0,6),
+                population: +row.populacao
+            }
+        })
+    ]).then(function([shapes, themes]) {
+        console.log(shapes);   // shape data
+        console.log(themes);    // population data
+
+        // save features in a global context
+        map.features   = shapes.features;
+
+        // add data to GeoJSON properties object
+        map.features.forEach(function(d) {
+            const entry   = themes.filter(t => t.cod_ibge == d.properties.id.substring(0,6))[0];
+            d.properties.population = entry ? entry.population ? entry.population : 0 : 0;
+        });
+
+        projection.fitSize([width, height], shapes);
+
+        // configure the scale
+        colorScale.domain([0, d3.max(map.features, d => d.properties.population)]);
+
+        console.log(map.features)
+
+        draw();
+    });
+
+    function draw() {
+        svg.selectAll("path.municipio")
+                .data(map.features)
+                .join("path").attr("class","municipio")
+                .attr('d', geoPath)
+                .style("fill", d => colorScale(d.properties.population));
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .country {
+            fill: white;
+            stroke: white;
+            stroke-width: .05;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const width = 960, height = 500;
+
+    const svg = d3.select("body").append("svg")
+            .attr("width", width).attr("height", height);
+
+    // choose a projection
+    const projection = d3.geoMercator();
+
+    // create a path generator function for the projection
+    const geoPath = d3.geoPath().projection(projection)
+
+    const colorScale = d3.scaleSqrt(["white", "red"]);
+    const areaScale = d3.scaleSqrt().range([0,15]);
+
+    const map = {};
+
+    Promise.all([
+        d3.json('../geo/municipios_br.geojson'),
+        d3.csv('../csv/municipios.csv', function(row) {
+            return {
+                cod_ibge: +row.codigo_ibge.substring(0,6),
+                coords: [+row.longitude, +row.latitude]
+            }
+        }),
+        d3.csv('../csv/populacao_2016_municipios.csv', function(row) {
+            return {
+                cod_ibge: +row.cod_ibge.substring(0,6),
+                population: +row.populacao
+            }
+        })
+    ]).then(function([shapes, places, themes]) {
+        console.log(shapes);  // shape data
+        console.log(themes);  // population data
+        console.log(places);  // city coordinates
+
+        // save features in a global context
+        map.features   = shapes.features;
+        map.places     = places;
+
+        // add more data to places object
+        places.forEach(function(p) {
+            const entry   = themes.filter(t => t.cod_ibge == p.cod_ibge)[0];
+            p.population = entry ? entry.population ? entry.population : 0 : 0;
+        });
+
+        projection.fitSize([width, height], shapes);
+
+        // configure the scales
+        colorScale.domain([0, d3.max(map.places, d => d.population)]);
+        areaScale.domain(colorScale.domain());
+
+        draw();
+    });
+
+    function draw() {
+        svg.selectAll("path.municipio")
+                .data(map.features)
+                .join("path").attr("class","municipio")
+                .attr('d', geoPath);
+
+        svg.selectAll("circle.city")
+                .data(map.places)
+                .join("circle").attr("class", "city")
+                .attr("r", d => areaScale(d.population))
+                .attr("transform", d => `translate(${projection(d.coords)})`)
+                .style("fill-opacity", d => areaScale(d.population) <= 1 ? 1 : .7)
+                .style("stroke-width", d => areaScale(d.population) > 1 ? .25 : 0)
+                .style("fill", d => colorScale(d.population));
+    }
+</script>
+
+</body>
+</html>
