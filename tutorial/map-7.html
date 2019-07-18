@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .poly {
+            stroke: black;
+            stroke-width: 1;
+            fill: yellow;
+        }
+    </style>
+</head>
+<body>
+<svg height="500" width="960"></svg>
+
+<script>
+    const points = [
+            [-10,0], [-3,10], [10,7], [10,-7], [-3,-10], [-10,0]
+    ];
+    const flatPoints = d3.merge(points); // [-10,0,-3,10,10,7,10,-7,-3,-10,-10,0]
+
+    const pointScale = d3.scaleLinear()
+                         .range([50,400])
+                         .domain([d3.min(flatPoints), d3.max(flatPoints)]);
+
+    const data = flatPoints.map(p => pointScale(p));
+
+    draw();
+
+    function draw() {
+        const svg = d3.select("svg");
+        svg.append("polygon")
+           .attr("class", "poly")
+           .attr("points", data);
+    }
+</script>
+
+</body>
+</html>

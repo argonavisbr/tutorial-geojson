@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body>
+
+<script>
+    const map = {};
+
+    d3.json('../geo/world.geojson')
+      .then(function(data) {
+        map.features   = data.features;
+        draw();
+    });
+
+    function draw() {
+        const ol = d3.select("body").append("ol");
+        ol.selectAll("li.country")
+          .data(map.features)
+          .enter()
+          .append("li").attr("class", "country")
+          .text(d => d.properties.name + " ("+ d.id + ")");
+    }
+</script>
+
+</body>
+</html>

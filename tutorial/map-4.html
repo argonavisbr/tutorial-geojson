@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .point {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const map = {};
+
+    d3.json('../geo/world.geojson')
+      .then(function(data) {
+        map.features   = data.features;
+        draw();
+    });
+
+    function draw() {
+        const country = map.features.filter(k => k.id === "BRA")[0];
+
+        const body = d3.select("body");
+        body.append("h1").text(country.properties.name + " (" + country.id + ")");
+
+        body.append("div").selectAll("div.point")
+          .data(country.geometry.coordinates[0])
+          .enter()
+          .append("div").attr("class", "point")
+          .text("+")
+          .style("top",  d => 10*(10-d[1])  + "px")
+          .style("left", d => 10*(100+d[0]) + "px");
+    }
+</script>
+
+</body>
+</html>

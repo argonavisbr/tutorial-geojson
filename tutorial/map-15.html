@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v1.js"></script>
+    <style>
+        path {
+            stroke: black;
+            stroke-width: 1;
+            fill: lightgray;
+        }
+        circle {
+            stroke: black;
+            stroke-width: .1;
+        }
+    </style>
+</head>
+<body>
+<svg height="500" width="960"></svg>
+
+<script>
+    const svg = d3.select("svg");
+
+    const geoPath = d3.geoPath();
+    const projection = d3.geoMollweide();
+            //d3.geoOrthographic();
+    geoPath.projection(projection);
+
+    const map = {};
+
+    const areaScale = d3.scaleSqrt().range([0.5, 15]);
+
+    Promise.all([
+        d3.json('../geo/world.geojson'),
+        d3.dsv(';', '../csv/cities15000.csv', function(row) {
+            return {
+                name: row.asciiname,
+                coords: [+row.longitude, +row.latitude]
+            }
+        })
+    ]).then(function([shapes, points]) {
+        areaScale.domain([1, d3.max(points, d => d.population)]);
+
+        map.features   = shapes.features;
+        map.points     = points;
+
+        draw();
+    });
+
+    function draw() {
+
+        svg.selectAll("path")
+                .data(map.features)
+                .enter()
+                .append("path")
+                .attr("d", geoPath);
+
+        svg.selectAll("circle.city")
+                .data(map.points)
+                .enter()
+                .append("circle").attr("class", "city")
+                .attr("cx", d => projection(d.coords)[0])
+                .attr("cy", d => projection(d.coords)[1])
+                .attr("r", d => 1)
+    }
+</script>
+
+</body>
+</html>

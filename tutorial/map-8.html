@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .poly {
+            stroke: black;
+            stroke-width: .05;
+            fill: yellow;
+        }
+    </style>
+</head>
+<body>
+<svg height="500" width="960"></svg>
+
+<script>
+    const svg = d3.select("svg");
+    const pathData = "M-10,0 L-3,10 L10,7 L10,-7 L-3,-10 Z";
+
+    const transform = d3.zoomTransform(svg.node)
+                        .scale(18).translate(13,13);
+
+    draw();
+
+    function draw() {
+        svg.append("path").attr("class", "poly")
+           .attr("d", pathData)
+           .attr("transform", transform);
+    }
+</script>
+
+</body>
+</html>

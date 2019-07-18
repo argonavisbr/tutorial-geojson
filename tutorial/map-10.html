@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        path {
+            stroke: black;
+            stroke-width: .05;
+            fill: lightgray;
+        }
+    </style>
+</head>
+<body>
+<svg height="500" width="960"></svg>
+
+<script>
+    const svg = d3.select("svg");
+
+    const transform = d3.zoomTransform(svg.node)
+                        .scale(2)
+                        .translate(180,90);
+
+    const geoPath = d3.geoPath();
+
+    const map = {};
+
+    d3.json('../geo/world.geojson')
+            .then(function(data) {
+                map.features   = data.features;
+                draw();
+            });
+
+    function draw() {
+
+        svg.selectAll("path")
+                .data(map.features)
+                .enter()
+                .append("path")
+                .attr("d", geoPath)
+                .attr("transform", transform);
+
+    }
+</script>
+
+</body>
+</html>

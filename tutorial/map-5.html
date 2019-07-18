@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .point {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const points = [
+            [-10,0], [-3,10], [10,7], [10,-7], [-3,-10], [-10,0]
+    ];
+    draw();
+
+    function draw() {
+        const body = d3.select("body");
+        body.append("div").selectAll("div.point")
+          .data(points)
+          .enter()
+          .append("div").attr("class", "point")
+          .text("+")
+          .style("top",  d => 10*(10+d[0]) + "px")
+          .style("left", d => 10*(10+d[1]) + "px");
+    }
+</script>
+
+</body>
+</html>

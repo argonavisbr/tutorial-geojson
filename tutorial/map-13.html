@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v1.js"></script>
+    <style>
+        path {
+            stroke: black;
+            stroke-width: 1;
+            fill: lightgray;
+        }
+    </style>
+</head>
+<body>
+<svg height="500" width="960"></svg>
+
+<script>
+    const svg = d3.select("svg");
+
+    const geoPath = d3.geoPath();
+    const projection = d3.geoMollweide();
+            //d3.geoOrthographic();
+    geoPath.projection(projection);
+
+    const map = {};
+
+    const colorScale = d3.scaleSqrt().range(["white", "red"]);
+
+    Promise.all([
+        d3.json('../geo/world.geojson'),
+        d3.csv('../csv/API_SP.POP.TOTL_DS2_en_csv_v2_63973.csv')
+    ]).then(function([shapes, themes]) {
+
+        shapes.features.forEach(function(d) {
+            const country = themes.filter(t => t["Country Code"] === d.id)[0];
+            d.properties.pop = country ? +country["2018"] : 1;
+        });
+
+        console.log(shapes.features)
+
+        colorScale.domain([1, d3.max(shapes.features, d => d.properties.pop)]);
+
+        map.features   = shapes.features;
+        draw();
+    });
+
+    function draw() {
+
+        svg.selectAll("path")
+                .data(map.features)
+                .enter()
+                .append("path")
+                .attr("d", geoPath)
+                .style("fill", d => colorScale(d.properties.pop));
+
+    }
+</script>
+
+</body>
+</html>
