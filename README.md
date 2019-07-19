@@ -1,6 +1,6 @@
-#GeoJSON tutorial
+# GeoJSON tutorial
 
-##Step-by-step tutorial (demos in JSFiddle)
+## Step-by-step tutorial (demos in JSFiddle)
 * [D3 Map 1: load GeoJSON](https://jsfiddle.net/helderdarocha/yxs7wmqv/)
 * [D3 Map 2: list GeoJSON properties](https://jsfiddle.net/helderdarocha/nosdp2tu/)
 * [D3 Map 3: list GeoJSON coords](https://jsfiddle.net/helderdarocha/un3mbLr4/)
@@ -20,3 +20,5 @@
 * [D3 Map 17: Bubble chart](https://jsfiddle.net/helderdarocha/xkwa4urz/)
 * [D3 Map 18: Color scale](https://jsfiddle.net/helderdarocha/q8xz93hv/)
 * [D3 Map 19: Events](https://jsfiddle.net/helderdarocha/xe0j72tp/)
+
+
