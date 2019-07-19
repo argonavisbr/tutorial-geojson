@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c9fb30d3-e3dc-4559-a9d4-3c11ad43600a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transito/choropleth-1.html" afterPath="$PROJECT_DIR$/transito/choropleth-1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transito/choropleth-2.html" afterPath="$PROJECT_DIR$/transito/choropleth-2.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transito/graduated-dots.html" afterPath="$PROJECT_DIR$/transito/graduated-dots.html" />
     </list>
     <ignored path="tutorial-geojson.iws" />
@@ -27,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="choropleth-1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="choropleth-1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transito/choropleth-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+            <state relative-caret-position="255">
+              <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graduated-dots.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="graduated-dots.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/transito/graduated-dots.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="156">
+              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -50,8 +48,8 @@
       <file leaf-file-name="choropleth-2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transito/choropleth-2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+            <state relative-caret-position="165">
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -160,9 +158,9 @@
         <option value="$PROJECT_DIR$/tutorial/map-9.html" />
         <option value="$PROJECT_DIR$/tutorial/map-15.html" />
         <option value="$PROJECT_DIR$/tutorial/map-3.html" />
-        <option value="$PROJECT_DIR$/transito/graduated-dots.html" />
         <option value="$PROJECT_DIR$/transito/choropleth-2.html" />
         <option value="$PROJECT_DIR$/transito/choropleth-1.html" />
+        <option value="$PROJECT_DIR$/transito/graduated-dots.html" />
       </list>
     </option>
   </component>
@@ -392,12 +390,12 @@
       <updated>1563219244839</updated>
       <workItem from="1563219246613" duration="2091000" />
       <workItem from="1563456981669" duration="29946000" />
-      <workItem from="1563542259573" duration="333000" />
+      <workItem from="1563542259573" duration="719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32370000" />
+    <option name="totallyTimeSpent" value="32756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="218" y="25" width="1189" height="793" extended-state="0" />
@@ -668,26 +666,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/transito/graduated-dots.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/transito/choropleth-2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        <state relative-caret-position="165">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/transito/choropleth-1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="255">
+          <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transito/graduated-dots.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
           <folding />
         </state>
       </provider>

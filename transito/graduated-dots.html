@@ -38,20 +38,20 @@
     const areaScale = d3.scaleLinear().range([0,15]);
 
     Promise.all([
-        d3.json('../geo/estados_br.geojson"),
+        d3.json('../geo/estados_br.geojson'),
         d3.csv('../csv/mortes_acidentes_transito_2016.csv', function(row) {
             return {
                 cod_ibge: +row.cod_ibge,
                 deaths: +row.obitos
             }
         }),
-        d3.csv('../Data/municipios.csv', function(row) {
+        d3.csv('../csv/municipios.csv', function(row) {
             return {
                 cod_ibge: +row.codigo_ibge.substring(0,6),
                 coords: [+row.longitude, +row.latitude]
             }
         }),
-        d3.csv('../Data/populacao_2016_municipios.csv', function(row) {
+        d3.csv('../csv/populacao_2016_municipios.csv', function(row) {
             return {
                 cod_ibge: +row.cod_ibge.substring(0,6),
                 population: +row.populacao
