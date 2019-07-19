@@ -30,8 +30,6 @@
 
     const map = {};
 
-    const areaScale = d3.scaleSqrt().range([0.5, 15]);
-
     Promise.all([
         d3.json('../geo/world.geojson'),
         d3.dsv(';', '../csv/cities15000.csv', function(row) {
@@ -41,11 +39,8 @@
             }
         })
     ]).then(function([shapes, points]) {
-        areaScale.domain([1, d3.max(points, d => d.population)]);
-
         map.features   = shapes.features;
         map.points     = points;
-
         draw();
     });
 

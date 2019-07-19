@@ -27,10 +27,10 @@
     const map = {};
 
     d3.json('../geo/world.geojson')
-            .then(function(data) {
-                map.features   = data.features;
-                draw();
-            });
+      .then(function(data) {
+          map.features   = data.features;
+          draw();
+      });
 
     function draw() {
         const country = map.features.filter(k => k.id === "BRA")[0];
