@@ -22,28 +22,28 @@
 
     const map = {};
 
-    const areaScale = d3.scaleSqrt().range([0.5, 15]);
-
     d3.dsv(';', '../csv/cities15000.csv', function(row) {
-            return {
-                name: row.asciiname,
-                coords: [+row.longitude, +row.latitude]
-            }
+        return {
+            name: row.asciiname,
+            coords: [+row.longitude, +row.latitude]
+        }
     }).then(function(points) {
-        areaScale.domain([1, d3.max(points, d => d.population)]);
         map.points     = points;
         draw();
     });
 
     function draw() {
-
+        svg.append("path")
+            .datum({type: "Sphere"})
+            .attr("d", geoPath)
+            .style("fill", "lightblue");
         svg.selectAll("circle.city")
-                .data(map.points)
-                .enter()
-                .append("circle").attr("class", "city")
-                .attr("cx", d => projection(d.coords)[0])
-                .attr("cy", d => projection(d.coords)[1])
-                .attr("r", d => .5)
+            .data(map.points)
+            .enter()
+            .append("circle").attr("class", "city")
+            .attr("cx", d => projection(d.coords)[0])
+            .attr("cy", d => projection(d.coords)[1])
+            .attr("r", d => .5)
     }
 </script>
 

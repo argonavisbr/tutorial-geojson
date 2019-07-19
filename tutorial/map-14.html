@@ -47,7 +47,10 @@
     });
 
     function draw() {
-
+        svg.append("path")
+                .datum({type: "Sphere"})
+                .attr("d", geoPath)
+                .style("fill", "lightblue");
         svg.selectAll("path")
                 .data(map.features)
                 .enter()
