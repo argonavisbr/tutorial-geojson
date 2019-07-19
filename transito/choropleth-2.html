@@ -15,8 +15,7 @@
 <body>
 <script>
     const width = 960;
-    const height = 500;
-    const FILE = "estados_br.geojson";
+    const height = 500;;
 
     const svg = d3.select("body").append("svg")
             .attr("width", width).attr("height", height);
@@ -33,7 +32,7 @@
     const map = {};
 
     Promise.all([
-        d3.json('../geo/' + FILE),
+        d3.json('../geo/estados_br.geojson'),
         d3.csv('../csv/mortes_acidentes_transito_2016_estados.csv', function(row) {
             return {
                 cod_ibge: +row.cod_ibge,

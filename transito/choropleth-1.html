@@ -16,7 +16,6 @@
 <script>
     const width = 960;
     const height = 500;
-    const FILE = "municipios_br.geojson";
 
     const svg = d3.select("body").append("svg")
             .attr("width", width).attr("height", height);
@@ -33,14 +32,14 @@
     const map = {};
 
     Promise.all([
-        d3.json('../Data/' + FILE),
-        d3.csv('../Data/mortes_acidentes_transito_2016.csv', function(row) {
+        d3.json('../geo/municipios_br.geojson'),
+        d3.csv('../csv/mortes_acidentes_transito_2016.csv', function(row) {
             return {
                 cod_ibge: +row.cod_ibge.substring(0,6),
                 deaths: +row.obitos
             }
         }),
-        d3.csv('../Data/populacao_2016_municipios.csv', function(row) {
+        d3.csv('../csv/populacao_2016_municipios.csv', function(row) {
             return {
                 cod_ibge: +row.cod_ibge.substring(0,6),
                 population: +row.populacao
