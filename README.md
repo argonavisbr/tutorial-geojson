@@ -1,5 +1,8 @@
 # GeoJSON tutorial
 
+* [Link to the presentation](https://www.slideshare.net/helderdarocha/transforming-public-data-into-thematic-maps-tdc2019-presentation)
+* Link to the article (soon)
+
 ## Step-by-step tutorial (demos in JSFiddle)
 * [D3 Map 1: load GeoJSON](https://jsfiddle.net/helderdarocha/yxs7wmqv/)
 * [D3 Map 2: list GeoJSON properties](https://jsfiddle.net/helderdarocha/nosdp2tu/)
