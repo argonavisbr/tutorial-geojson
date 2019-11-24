@@ -1,6 +1,6 @@
 # GeoJSON tutorial
 
-* [Link to the presentation](https://www.slideshare.net/helderdarocha/transforming-public-data-into-thematic-maps-tdc2019-presentation)
+* [Link to the presentation](https://tiny.cc/hksrgz)
 * Link to the article (soon)
 
 ## Step-by-step tutorial (demos in [CodePen Collection](https://codepen.io/collection/nZEaBN))
