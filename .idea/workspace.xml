@@ -1,131 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c9fb30d3-e3dc-4559-a9d4-3c11ad43600a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transito/graduated-dots.html" afterPath="$PROJECT_DIR$/transito/graduated-dots.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv/API_SP.POP.TOTL_DS2_en_csv_v2_63973.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data-csv/API_SP.POP.TOTL_DS2_en_csv_v2_63973.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv/cities15000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data-csv/cities15000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv/mortes_acidentes_transito_2016.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data-csv/mortes_acidentes_transito_2016.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv/mortes_acidentes_transito_2016_estados.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data-csv/mortes_acidentes_transito_2016_estados.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv/municipios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data-csv/municipios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv/populacao_2016_estados.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data-csv/populacao_2016_estados.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csv/populacao_2016_municipios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data-csv/populacao_2016_municipios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geo/estados_br.geojson" beforeDir="false" afterPath="$PROJECT_DIR$/data-geojson/estados_br.geojson" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geo/example.geojson" beforeDir="false" afterPath="$PROJECT_DIR$/data-geojson/example.geojson" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geo/municipios_br.geojson" beforeDir="false" afterPath="$PROJECT_DIR$/data-geojson/municipios_br.geojson" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geo/ne_110m_admin_0_countries.json" beforeDir="false" afterPath="$PROJECT_DIR$/data-geojson/ne_110m_admin_0_countries.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geo/world.geojson" beforeDir="false" afterPath="$PROJECT_DIR$/data-geojson/world.geojson" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/populacao/populacao_brasil_choropleth.html" beforeDir="false" afterPath="$PROJECT_DIR$/example-population/populacao_brasil_choropleth.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/populacao/populacao_cities_dot_dist.html" beforeDir="false" afterPath="$PROJECT_DIR$/example-population/populacao_cities_dot_dist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transito/choropleth-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/example-accidents/choropleth-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transito/choropleth-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/example-accidents/choropleth-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/transito/graduated-dots.html" beforeDir="false" afterPath="$PROJECT_DIR$/example-accidents/graduated-dots.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-10.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-11.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-12.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-13.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-14.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-15.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-16.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-17.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-18.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-19.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-19.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-4.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-6a.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-6a.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-7.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-8.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial/map-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/tutorial/map-9.html" afterDir="false" />
     </list>
-    <ignored path="tutorial-geojson.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <ignored path=".idea/dataSources.local.xml" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
-  <component name="FavoritesManager">
-    <favorites_list name="tutorial-geojson" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="choropleth-1.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transito/choropleth-1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graduated-dots.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/transito/graduated-dots.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choropleth-2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/transito/choropleth-2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map-9.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/map-9.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="43" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map-12.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/map-12.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="24" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map-11.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/map-11.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="40" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map-10.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/map-10.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="35" selection-start-line="36" selection-start-column="8" selection-end-line="40" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map-15.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/map-15.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="64" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cities15000.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/csv/cities15000.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="49" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="map-19.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tutorial/map-19.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -169,23 +97,24 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="cnexn82c" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectFrameBounds">
     <option name="x" value="218" />
     <option name="y" value="25" />
     <option name="width" value="1189" />
     <option name="height" value="793" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
-  </component>
+  <component name="ProjectId" id="2LEyk5cX5qpSjChfaFHsBsIOt6a" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -309,16 +238,25 @@
       </pane>
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
-    <property name="JavaScriptPreferStrict" value="false" />
-    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="js.eslint.eslintPackage" value="" />
-    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/helderdarocha/IdeaProjects/tutorial-geojson",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "Errors",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tutorial" />
@@ -331,12 +269,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
@@ -348,39 +280,29 @@
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
       <method />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+    <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <envs />
-      <method />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+    <configuration default="true" type="mocha-javascript-test-runner">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <working-directory>$PROJECT_DIR$</working-directory>
       <pass-parent-env>true</pass-parent-env>
-      <envs />
       <ui>bdd</ui>
       <extra-mocha-options />
       <test-kind>DIRECTORY</test-kind>
       <test-directory />
       <recursive>false</recursive>
-      <method />
+      <method v="2" />
     </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c9fb30d3-e3dc-4559-a9d4-3c11ad43600a" name="Default" comment="" />
@@ -391,6 +313,10 @@
       <workItem from="1563219246613" duration="2091000" />
       <workItem from="1563456981669" duration="29946000" />
       <workItem from="1563542259573" duration="719000" />
+      <workItem from="1675450678607" duration="434000" />
+      <workItem from="1675950326815" duration="355000" />
+      <workItem from="1696981530997" duration="653000" />
+      <workItem from="1726166408123" duration="7464000" />
     </task>
     <servers />
   </component>
@@ -420,12 +346,23 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/populacao/populacao_cities_dot_dist.html">

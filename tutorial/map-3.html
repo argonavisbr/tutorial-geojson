@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Step 3: selecting coordinates from loaded dataset</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
 
 <script>
     const map = {};
 
-    d3.json('../geo/world.geojson')
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+
+    d3.json(shapeFile_geojson)
       .then(function(data) {
-        map.features   = data.features;
-        draw();
+          map.features   = data.features;
+          draw();
     });
 
     function draw() {
@@ -23,10 +25,9 @@
         body.append("h1").text(country.properties.name);
 
         body.append("ul").selectAll("li.coord")
-          .data(country.geometry.coordinates[0])
-          .enter()
-          .append("li").attr("class", "coord")
-          .text(d => "Lon: " + d[0] + ", Lat: " + d[1]);
+            .data(country.geometry.coordinates[0])
+              .join("li").attr("class", "coord")
+              .text(d => "Lon: " + d[0] + ", Lat: " + d[1]);
     }
 </script>
 

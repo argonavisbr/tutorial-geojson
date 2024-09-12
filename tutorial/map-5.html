@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Step 5: using a small array of points to plot as characters</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         .point {
             position: absolute;
@@ -22,11 +22,10 @@
         const body = d3.select("body");
         body.append("div").selectAll("div.point")
           .data(points)
-          .enter()
-          .append("div").attr("class", "point")
-          .text("+")
-          .style("top",  d => 10*(10+d[0]) + "px")
-          .style("left", d => 10*(10+d[1]) + "px");
+             .join("div").attr("class", "point")
+                .text("+")
+                .style("top",  d => 10*(10+d[0]) + "px")
+                .style("left", d => 10*(10+d[1]) + "px");
     }
 </script>
 

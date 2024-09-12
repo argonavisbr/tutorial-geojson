@@ -1,7 +1,7 @@
 # GeoJSON tutorial
 
 * [Link to the presentation](https://tiny.cc/hksrgz)
-* Link to the article (soon)
+* Link to the article (Observable notebook)
 
 ## Step-by-step tutorial (demos in [CodePen Collection](https://codepen.io/collection/nZEaBN))
 * [D3 Map 1: load GeoJSON](https://codepen.io/helderdarocha/pen/poojXVd)

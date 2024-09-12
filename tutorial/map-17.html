@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v1.js"></script>
+    <title>Step 17: using thematic data for city radii</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4"></script>
     <style>
         path {
             stroke: black;
@@ -24,6 +24,9 @@
 <script>
     const svg = d3.select("svg");
 
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+    const pointFile_csv     = '../data-csv/cities15000.csv';
+
     const geoPath = d3.geoPath();
     const projection = d3.geoMollweide();
     geoPath.projection(projection);
@@ -33,8 +36,8 @@
     const areaScale = d3.scaleSqrt().range([0.5, 15]);
 
     Promise.all([
-        d3.json('../geo/world.geojson'),
-        d3.dsv(';', '../csv/cities15000.csv', function(row) {
+        d3.json(shapeFile_geojson),
+        d3.dsv(';', pointFile_csv, function(row) {
             return {
                 name: row.asciiname,
                 coords: [+row.longitude, +row.latitude],
@@ -52,20 +55,18 @@
 
     function draw() {
         svg.append("path")
-                .datum({type: "Sphere"})
-                .attr("d", geoPath)
-                .style("fill", "lightblue");
+           .datum({type: "Sphere"})
+              .attr("d", geoPath)
+              .style("fill", "lightblue");
 
-        svg.selectAll("path")
-                .data(map.features)
-                .enter()
-                .append("path")
+        svg.selectAll("path.earth")
+           .data(map.features)
+              .join("path").attr("class", "earth")
                 .attr("d", geoPath);
 
         svg.selectAll("circle.city")
-                .data(map.points)
-                .enter()
-                .append("circle").attr("class", "city")
+           .data(map.points)
+              .join("circle").attr("class", "city")
                 .attr("cx", d => projection(d.coords)[0])
                 .attr("cy", d => projection(d.coords)[1])
                 .attr("r", d => areaScale(d.pop))

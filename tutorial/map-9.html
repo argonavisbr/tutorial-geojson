@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Step 9: Using D3 geo tools to generate an SVG path string from geo coordinates: single country</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         path {
             stroke: black;
             stroke-width: .05;
-            fill: lightgray;
+            fill: gray;
         }
     </style>
 </head>
@@ -18,6 +18,8 @@
 <script>
     const svg = d3.select("svg");
 
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+
     const transform = d3.zoomTransform(svg.node)
                         .scale(2)
                         .translate(180,90);
@@ -26,7 +28,7 @@
 
     const map = {};
 
-    d3.json('../geo/world.geojson')
+    d3.json(shapeFile_geojson)
       .then(function(data) {
           map.features   = data.features;
           draw();
@@ -38,8 +40,8 @@
         console.log(pathData)
 
         svg.append("path")
-                .attr("d", pathData)
-                .attr("transform", transform);
+           .attr("d", pathData)
+           .attr("transform", transform);
 
     }
 </script>

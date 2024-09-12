@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Step 11: Using a geo projection (Mercator)</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
         path {
             stroke: black;
@@ -18,13 +18,15 @@
 <script>
     const svg = d3.select("svg");
 
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+
     const geoPath = d3.geoPath();
     const projection = d3.geoMercator();
     geoPath.projection(projection);
 
     const map = {};
 
-    d3.json('../geo/world.geojson')
+    d3.json(shapeFile_geojson)
             .then(function(data) {
                 map.features   = data.features;
                 draw();
@@ -33,9 +35,8 @@
     function draw() {
 
         svg.selectAll("path")
-                .data(map.features)
-                .enter()
-                .append("path")
+           .data(map.features)
+              .join("path")
                 .attr("d", geoPath);
 
     }

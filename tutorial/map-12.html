@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v1.js"></script>
+    <title>Step 12: using a different projection</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4"></script>
     <style>
-        path {
+        path.earth {
             stroke: black;
             stroke-width: 1;
             fill: lightgray;
@@ -19,30 +19,26 @@
 <script>
     const svg = d3.select("svg");
 
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+
     const geoPath = d3.geoPath();
     const projection = d3.geoMollweide();
-            //d3.geoOrthographic();
+                     //d3.geoOrthographic();
     geoPath.projection(projection);
 
     const map = {};
 
-    d3.json('../geo/world.geojson')
+    d3.json(shapeFile_geojson)
             .then(function(data) {
                 map.features   = data.features;
                 draw();
             });
 
     function draw() {
-        svg.append("path")
-                .datum({type: "Sphere"})
-                .attr("d", geoPath)
-                .style("fill", "lightblue");
-        svg.selectAll("path")
-                .data(map.features)
-                .enter()
-                .append("path")
+        svg.selectAll("path.earth")
+           .data(map.features)
+              .join("path").attr("class", "earth")
                 .attr("d", geoPath);
-
     }
 </script>
 

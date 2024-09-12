@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Step 2: selecting data from loaded dataset</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
 
 <script>
     const map = {};
 
-    d3.json('../geo/world.geojson')
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+
+    d3.json(shapeFile_geojson)
       .then(function(data) {
         map.features   = data.features;
         draw();
@@ -20,9 +22,8 @@
         const ol = d3.select("body").append("ol");
         ol.selectAll("li.country")
           .data(map.features)
-          .enter()
-          .append("li").attr("class", "country")
-          .text(d => d.properties.name + " ("+ d.id + ")");
+            .join("li").attr("class", "country")
+              .text(d => d.properties.name + " ("+ d.id + ")");
     }
 </script>
 

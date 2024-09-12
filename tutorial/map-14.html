@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v1.js"></script>
+    <title>Step 14: adding thematic data: population density</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4"></script>
     <style>
         path {
             stroke: black;
@@ -19,9 +19,12 @@
 <script>
     const svg = d3.select("svg");
 
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+    const dataFile_csv      = '../data-csv/API_SP.POP.TOTL_DS2_en_csv_v2_63973.csv';
+
     const geoPath = d3.geoPath();
     const projection = d3.geoMollweide();
-            //d3.geoOrthographic();
+                     //d3.geoOrthographic();
     geoPath.projection(projection);
 
     const map = {};
@@ -29,8 +32,8 @@
     const colorScale = d3.scaleLinear().range(["white", "red"]);
 
     Promise.all([
-        d3.json('../geo/world.geojson'),
-        d3.csv('../csv/API_SP.POP.TOTL_DS2_en_csv_v2_63973.csv')
+        d3.json(shapeFile_geojson),
+        d3.csv(dataFile_csv)
     ]).then(function([shapes, themes]) {
 
         shapes.features.forEach(function(d) {
@@ -48,13 +51,13 @@
 
     function draw() {
         svg.append("path")
-                .datum({type: "Sphere"})
-                .attr("d", geoPath)
-                .style("fill", "lightblue");
-        svg.selectAll("path")
-                .data(map.features)
-                .enter()
-                .append("path")
+           .datum({type: "Sphere"})
+               .attr("d", geoPath)
+               .style("fill", "lightblue");
+
+        svg.selectAll("path.earth")
+           .data(map.features)
+              .join("path").attr("class", "earth")
                 .attr("d", geoPath)
                 .style("fill", d => colorScale(d.properties.dens));
 

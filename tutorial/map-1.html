@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Step 1: loading the JSON file</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
 <h1>See results in JavaScript console</h1>
 
 <script>
 
-    d3.json('../geo/world.geojson')
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+
+    d3.json(shapeFile_geojson)
       .then(function(data) {
-        console.log(data.features);   // features array
+          console.log(data.features);   // features array
     });
 
 </script>

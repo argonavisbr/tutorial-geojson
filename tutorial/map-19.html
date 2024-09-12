@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v1.js"></script>
+    <title>Step 19: using interactivity (tooltips)</title>
     <style>
         path {
             stroke: black;
@@ -19,15 +17,23 @@
         text {
             font-family: "Yanone Kaffeesatz";
             font-size: 12pt;
-            fill: brown
+            fill: darkgreen;
         }
     </style>
 </head>
 <body>
 <svg height="500" width="960"></svg>
 
-<script>
+<script type="module">
+    const d3 = await Promise.all([
+        import("https://cdn.skypack.dev/d3@7"),
+        import("https://cdn.skypack.dev/d3-geo-projection@4")
+    ]).then(d3 => Object.assign({}, ...d3));
+
     const svg = d3.select("svg");
+
+    const shapeFile_geojson = '../data-geojson/world.geojson';
+    const pointFile_csv     = '../data-csv/cities15000.csv';
 
     const geoPath = d3.geoPath();
     const projection = d3.geoMollweide();
@@ -39,8 +45,8 @@
     const colorScale = d3.scaleSqrt().range(["rgba(0,0,255,.1)", "rgba(255,0,0,.5)"]);
 
     Promise.all([
-        d3.json('../geo/world.geojson'),
-        d3.dsv(';', '../csv/cities15000.csv', function(row) {
+        d3.json(shapeFile_geojson),
+        d3.dsv(';', pointFile_csv, function(row) {
             return {
                 name: row.asciiname,
                 coords: [+row.longitude, +row.latitude],
@@ -58,21 +64,22 @@
     });
 
     function draw() {
+        // Paints the sea blue (applying the projection to a sphere)
         svg.append("path")
-                .datum({type: "Sphere"})
-                .attr("d", geoPath)
+           .datum({type: "Sphere"})
+              .attr("d", geoPath)
                 .style("fill", "lightblue");
 
-        svg.selectAll("path")
-                .data(map.features)
-                .enter()
-                .append("path")
+        // Binds all GEOJSON country features to path elements
+        svg.selectAll("path.earth")
+           .data(map.features)
+              .join("path").attr("class", "earth")
                 .attr("d", geoPath);
 
+        // Binds all city coordinates to circle elements in the current projection
         svg.selectAll("circle.city")
-                .data(map.points)
-                .enter()
-                .append("circle").attr("class", "city")
+           .data(map.points)
+              .join("circle").attr("class", "city")
                 .attr("cx", d => projection(d.coords)[0])
                 .attr("cy", d => projection(d.coords)[1])
                 .attr("r", d => areaScale(d.pop))
@@ -81,15 +88,15 @@
                 .on("mouseleave", hideName);
     }
 
-    function showName(d) {
+    function showName(evt, d) {
         svg.append("text")
-                .text(d.name)
-                .attr("x", projection(d.coords)[0])
-                .attr("y", projection(d.coords)[1])
-                .attr("class", "visible")
+           .text(d.name)
+               .attr("x", projection(d.coords)[0])
+               .attr("y", projection(d.coords)[1])
+               .attr("class", "visible")
     }
 
-    function hideName(d) {
+    function hideName(evt, d) {
         svg.selectAll(".visible").remove();
     }
 </script>

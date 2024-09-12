@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Mortes por município por habitante</title>
     <style>
         .country {
             fill: #fff;
@@ -18,40 +17,54 @@
     </style>
 </head>
 <body>
-<script>
+<script type="module">
+    import * as d3 from "https://cdn.skypack.dev/d3@7";
+
     const width = 960;
     const height = 500;
 
-    const svg = d3.select("body").append("svg")
-            .attr("width", width).attr("height", height);
+    const state_shapes_geojson_file = '../data-geojson/estados_br.geojson';
+    const city_shapes_geojson_file  = '../data-geojson/municipios_br.geojson';
+
+    const coordinates_per_city_csv_file  = '../data-csv/municipios.csv';
+    const population_per_city_csv_file   = '../data-csv/populacao_2016_municipios.csv';
+    const population_per_state_csv_file  = '../data-csv/populacao_2016_estados.csv';
+    const accidents_per_city_csv_file    = '../data-csv/mortes_acidentes_transito_2016.csv';
+    const accidents_per_state_csv_file   = '../data-csv/mortes_acidentes_transito_2016_estados.csv';
+
+    const svg = d3.select("body")
+                  .append("svg")
+                  .attr("width", width)
+                  .attr("height", height);
 
     // choose a projection
     const projection = d3.geoMercator();
 
     // create a path generator function for the projection
     const geoPath = d3.geoPath()
-            .projection(projection)
+                      .projection(projection)
 
     const map = {};
 
     const colorScale = d3.scaleLinear(["hsla(240,100%,50%,.5)", "red"]);
     const areaScale = d3.scaleLinear().range([0,15]);
 
+    // Load 4 files & filter using row functions to extract just the desired fields
     Promise.all([
-        d3.json('../geo/estados_br.geojson'),
-        d3.csv('../csv/mortes_acidentes_transito_2016.csv', function(row) {
+        d3.json(state_shapes_geojson_file),
+        d3.csv(accidents_per_city_csv_file, function(row) {
             return {
                 cod_ibge: +row.cod_ibge,
                 deaths: +row.obitos
             }
         }),
-        d3.csv('../csv/municipios.csv', function(row) {
+        d3.csv(coordinates_per_city_csv_file, function(row) {
             return {
                 cod_ibge: +row.codigo_ibge.substring(0,6),
                 coords: [+row.longitude, +row.latitude]
             }
         }),
-        d3.csv('../csv/populacao_2016_municipios.csv', function(row) {
+        d3.csv(population_per_city_csv_file, function(row) {
             return {
                 cod_ibge: +row.cod_ibge.substring(0,6),
                 population: +row.populacao
@@ -92,16 +105,14 @@
 
     function draw() {
         svg.selectAll("path.country")
-            .data(map.features)
-            .enter()
-            .append("path")
-            .attr("class","country")
-            .attr('d', geoPath);
+           .data(map.features)
+              .join("path")
+                .attr("class","country")
+                .attr('d', geoPath);
 
         svg.selectAll("circle.city")
-                .data(map.places)
-                .enter()
-                .append("circle")
+           .data(map.places)
+              .join("circle")
                 .attr("class", "city")
                 .attr("r", d => areaScale(d.deathsPerHab))
                 .attr("transform", d => `translate(${projection(d.coords)})`)
